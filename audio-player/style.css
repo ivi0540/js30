@@ -1,0 +1,11 @@
+.playOrPauseBtn {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    background-image: url("http://simpleicon.com/wp-content/uploads/play1.png");
+    background-size: contain;
+}
+
+.pause {
+    background-image: url("http://simpleicon.com/wp-content/uploads/pause.png");
+}
