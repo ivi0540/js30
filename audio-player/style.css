@@ -22,9 +22,8 @@
     margin-top: 50px;
     width: 1280px;
     height: 720px;
-    background-color: aqua;
 
-    background-image: url('https://i.ytimg.com/vi/auf2EWXjV88/maxresdefault.jpg');
+    background-image: url('image/7924.jpg');
     background-size: cover;
 }
 
@@ -32,10 +31,12 @@
     width: 459px;
     height: 550px;
 
-    margin-left: 538px;
+    margin: 0 auto;
 
     background-color: aqua;
     border-radius: 15px;
+
+    box-shadow: 10px black;
 }
 
 .bgImageMimi {
@@ -44,6 +45,9 @@
 
     background-color: blue;
     border-radius: 15px 15px 0 0;
+
+    background-image: url('image/sddefault.jpg');
+    background-size: cover;
 }
 
 .panelPlayer {
@@ -53,5 +57,12 @@
     background-color: brown;
 
     border-radius: 0 0 15px 15px;
+
+}
+
+.buttonPanel {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
 
 }

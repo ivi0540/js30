@@ -2,6 +2,9 @@ let audio = new Audio();
 let playOrPauseBtn = document.querySelector('.playOrPauseBtn');
 let nextTrack = document.querySelector('.nextTrack');
 let previousTrack = document.querySelector('.previousTrack');
+let bgImage = document.querySelector('.bgImage');
+let bgImageMimi = document.querySelector('.bgImageMimi');
+let progressAudio = document.querySelector('.progressAudio');
 let isPlay = false;
 
 let trackList = [
@@ -9,15 +12,15 @@ let trackList = [
         'singer': 'Lady Gaga',
         'trackName': 'Poker Face',
         'trackSrc': "music/Gaga - Poker Face.mp3",
-        'imageFullSize': '1111',
-        'imageMini': '2222'
+        'imageFullSize': "url('image/7924.jpg')",
+        'imageMini': "url('image/sddefault.jpg')"
     },
     {
         'singer': 'Mr.President',
         'trackName': 'Coco Jamboo',
         'trackSrc': "music/dr-alban-koko-dzhambo.mp3",
-        'imageFullSize': '9999',
-        'imageMini': '8888'
+        'imageFullSize': "url('image/maxresdefault (1).jpg')",
+        'imageMini': "url('image/sddefault_2.jpg')"
     }
 ];
 
@@ -31,6 +34,7 @@ function PlayNextTrack() {
         numTrack = numTrack + 1;
     };
     currentTrack = trackList[numTrack];
+    changePictures();
     pauseTrack();
     playTrack();
 };
@@ -41,6 +45,8 @@ function PlayPreviousTrack() {
         numTrack = numTrack - 1;
     };
     currentTrack = trackList[numTrack];
+
+    changePictures();
     pauseTrack();
     playTrack();
 };
@@ -57,6 +63,7 @@ function PlayPreviousTrack() {
 //         playOrPauseBtn.classList.toggle('pause');
 //     };
 // };
+// progressAudio.max = audio.duration;
 
 function playTrack() {
     audio.src = currentTrack.trackSrc;
@@ -65,9 +72,13 @@ function playTrack() {
     console.log(currentTrack.imageFullSize);
     console.log(currentTrack.imageMini);
 
+    // bgImage.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8lOBbKC1YJwK21y7QUeYjUXgmagvD2TUc3ITZ1ihcsQ&s'";
+
     audio.play();
+    changePictures();
     isPlay = true;
     playOrPauseBtn.classList.toggle('pause');
+
 };
 
 function pauseTrack() {
@@ -84,6 +95,11 @@ function playOrPausefull() {
         pauseTrack();
     };
 };
+
+function changePictures() {
+    bgImage.style.backgroundImage = currentTrack.imageFullSize;
+    bgImageMimi.style.backgroundImage = currentTrack.imageMini;
+}
 
 playOrPauseBtn.addEventListener('click', playOrPausefull);
 nextTrack.addEventListener('click', PlayNextTrack);
