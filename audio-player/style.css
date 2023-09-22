@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+.flexSpArSt {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
 .playOrPauseBtn {
     width: 80px;
     height: 80px;
@@ -57,12 +63,19 @@
     background-color: brown;
 
     border-radius: 0 0 15px 15px;
-
 }
 
 .buttonPanel {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
+}
 
+.textPanel {
+    width: 100%;
+    height: 20px;
+
+    display: flex;
+
+    background-color: aquamarine;
 }

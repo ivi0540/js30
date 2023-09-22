@@ -5,8 +5,11 @@ let previousTrack = document.querySelector('.previousTrack');
 let bgImage = document.querySelector('.bgImage');
 let bgImageMimi = document.querySelector('.bgImageMimi');
 let progressAudio = document.querySelector('.progressAudio');
-let isPlay = false;
+let authorTrack = document.querySelector('.authorTrack');
+let nameTrack = document.querySelector('.nameTrack');
 
+// init
+let isPlay = false;
 let trackList = [
     {
         'singer': 'Lady Gaga',
@@ -23,9 +26,10 @@ let trackList = [
         'imageMini': "url('image/sddefault_2.jpg')"
     }
 ];
-
 let numTrack = 0;
 let currentTrack = trackList[numTrack];
+authorTrack.textContent = currentTrack.singer;
+nameTrack.textContent = currentTrack.trackName;
 
 function PlayNextTrack() {
     if (numTrack === trackList.length - 1) {
@@ -34,9 +38,11 @@ function PlayNextTrack() {
         numTrack = numTrack + 1;
     };
     currentTrack = trackList[numTrack];
-    changePictures();
+    changeTrack();
     pauseTrack();
     playTrack();
+
+
 };
 function PlayPreviousTrack() {
     if (numTrack === 0) {
@@ -46,38 +52,26 @@ function PlayPreviousTrack() {
     };
     currentTrack = trackList[numTrack];
 
-    changePictures();
+    changeTrack();
     pauseTrack();
     playTrack();
 };
-// function playOrPause() {
-//     if (!isPlay) {
-//         audio.src = "music/Gaga - Poker Face.mp3";
-//         audio.currentTime = 0;
-//         audio.play();
-//         isPlay = true;
-//         playOrPauseBtn.classList.toggle('pause');
-//     } else {
-//         audio.pause();
-//         isPlay = false;
-//         playOrPauseBtn.classList.toggle('pause');
-//     };
-// };
-// progressAudio.max = audio.duration;
+
+progressAudio.max = 100;
+progressAudio.value = 0;
+
 
 function playTrack() {
     audio.src = currentTrack.trackSrc;
-    console.log(currentTrack.singer);
-    console.log(currentTrack.trackName);
-    console.log(currentTrack.imageFullSize);
-    console.log(currentTrack.imageMini);
 
-    // bgImage.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8lOBbKC1YJwK21y7QUeYjUXgmagvD2TUc3ITZ1ihcsQ&s'";
+    // progressAudio.max = audio.duration;
+    // progressAudio.value = audio.currentTime;
 
     audio.play();
-    changePictures();
+    changeTrack();
     isPlay = true;
     playOrPauseBtn.classList.toggle('pause');
+
 
 };
 
@@ -96,11 +90,35 @@ function playOrPausefull() {
     };
 };
 
-function changePictures() {
-    bgImage.style.backgroundImage = currentTrack.imageFullSize;
-    bgImageMimi.style.backgroundImage = currentTrack.imageMini;
-}
+
+
+
+function changeTrack() {
+    function changePictures() {
+        bgImage.style.backgroundImage = currentTrack.imageFullSize;
+        bgImageMimi.style.backgroundImage = currentTrack.imageMini;
+    }
+    function changeText() {
+        authorTrack.textContent = currentTrack.singer;
+        nameTrack.textContent = currentTrack.trackName;
+    };
+    
+    changePictures();
+    changeText();
+};
 
 playOrPauseBtn.addEventListener('click', playOrPausefull);
 nextTrack.addEventListener('click', PlayNextTrack);
 previousTrack.addEventListener('click', PlayPreviousTrack);
+progressAudio.addEventListener('click', () => {
+    console.log(audio.duration);
+    console.log(audio.currentTime);
+});
+
+audio.addEventListener('timeupdate', () => {
+    progressAudio.max = audio.duration;
+    progressAudio.value = audio.currentTime;
+
+    // console.log(audio.duration);
+    // console.log(audio.currentTime);
+});
