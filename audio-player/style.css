@@ -4,28 +4,64 @@
     padding: 0;
 }
 
+:root {
+    --sizeButton: 55px;
+    /* --colorButton: #d61b22; */
+    /* --colorButton: #c71ff3; */
+    --colorButton: #6bb4d1;
+    ;
+    /* --colorPlayer: #9b9e99; */
+    --colorPlayer: #9b9e99;
+    --colorText: white;
+}
+
 .flexSpArSt {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
 }
 
+.flexSpBeCe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .playOrPauseBtn {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    background-image: url("http://simpleicon.com/wp-content/uploads/play1.png");
+    width: var(--sizeButton);
+    height: var(--sizeButton);
+    border-radius: 50px;
+    background-image: url("image/play.png");
     background-size: contain;
+    background-color: var(--colorButton);
 }
 
 .pause {
-    background-image: url("http://simpleicon.com/wp-content/uploads/pause.png");
+    background-image: url("image/pause.png");
+}
+
+.previousTrack {
+    width: var(--sizeButton);
+    height: var(--sizeButton);
+    border-radius: 10px;
+    background-image: url("image/left.png");
+    background-size: contain;
+    background-color: var(--colorButton);
+
+}
+
+.nextTrack {
+    width: var(--sizeButton);
+    height: var(--sizeButton);
+    border-radius: 10px;
+    background-image: url("image/right.png");
+    background-size: contain;
+    background-color: var(--colorButton);
 }
 
 .bgImage {
     margin: 0 auto;
-    padding-top: 132px;
-    margin-top: 50px;
+    padding-top: 170px;
     width: 1280px;
     height: 720px;
 
@@ -39,7 +75,7 @@
 
     margin: 0 auto;
 
-    background-color: aqua;
+    /* background-color: aqua; */
     border-radius: 15px;
 
     box-shadow: 10px black;
@@ -59,23 +95,58 @@
 .panelPlayer {
     width: 100%;
     height: 180px;
+    padding-left: 10px;
+    padding-right: 10px;
 
-    background-color: brown;
+    background-color: var(--colorPlayer);
 
     border-radius: 0 0 15px 15px;
+
+    border: 3px solid black;
 }
 
 .buttonPanel {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
+
+    margin-top: 10px;
 }
 
 .textPanel {
     width: 100%;
     height: 20px;
 
+    margin-top: 30px;
+
     display: flex;
 
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+}
+
+.progressAudio,
+.progressAudio::-webkit-progress-value {
+    width: 100%;
+    /* margin: 0 auto; */
+    height: 10px;
+
+    border-radius: 0px;
+    background-color: var(--colorButton);
+}
+
+.progressBlock {
+    margin: 0;
+    padding: 0;
+}
+
+.sec,
+.secAll {
+    color: var(--colorText);
+}
+
+.authorTrack,
+.nameTrack {
+    color: var(--colorText);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
 }
