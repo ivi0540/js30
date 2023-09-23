@@ -9,6 +9,9 @@ let authorTrack = document.querySelector('.authorTrack');
 let nameTrack = document.querySelector('.nameTrack');
 let sec = document.querySelector('.sec');
 let secAll = document.querySelector('.secAll');
+let footer = document.querySelector('.footer');
+
+// let test = document.querySelector('.test');
 
 // init
 let isPlay = false;
@@ -33,12 +36,20 @@ let trackList = [
         'trackSrc': "music/Static-X_-_The_Only_(musmore.com).mp3",
         'imageFullSize': "url('image/111maxresdefault (1).jpg')",
         'imageMini': "url('image/6wzfdg-Xtbk.jpg')"
+    },
+    {
+        'singer': 'Kylie minogue',
+        'trackName': 'Can t Get You Out of My Head',
+        'trackSrc': "music/KylieMinogueCanNotGetYouOutOfMyHead_(radiodiva.ru).mp3",
+        'imageFullSize': "url('image/Can-t-Get-You-Out-Of-My-Head-Music-Video-kylie-minogue-26482453-1037-680.jpg')",
+        'imageMini': "url('image/ma1235gfgxresdefault (1).jpg')"
     }
 ];
 let numTrack = 0;
 let currentTrack = trackList[numTrack];
 authorTrack.textContent = currentTrack.singer;
 nameTrack.textContent = currentTrack.trackName;
+let completionPercentage = 0;
 
 changeTrack();
 
@@ -118,7 +129,6 @@ previousTrack.addEventListener('click', PlayPreviousTrack);
 audio.addEventListener('timeupdate', () => {
     if (progressAudio.max !== audio.duration) {
         progressAudio.max = audio.duration;
-        console.log("12345");
     };
     if (audio.currentTime === audio.duration) {
         PlayNextTrack();
@@ -130,6 +140,29 @@ audio.addEventListener('timeupdate', () => {
 
 
 progressAudio.addEventListener('click', () => {
-    console.log(audio.duration);
-    console.log(audio.currentTime);
+    // console.log("Процент выполнения", Number(completionPercentage.toFixed(2)));
+    if (audio.duration) {
+        audio.currentTime = Number(((audio.duration / 60).toFixed(2) * completionPercentage / 100).toFixed(2)) * 60;
+        // console.log(Number(((audio.duration / 60).toFixed(2) * completionPercentage / 100).toFixed(2)));
+    };
+});
+
+
+
+
+progressAudio.addEventListener('mousemove', (event) => {
+    let x = event.clientX;
+    let initialValue = progressAudio.getBoundingClientRect().x;
+
+    // test.style.left = String(x) + "px";
+
+    let finalValue = progressAudio.getBoundingClientRect().x + progressAudio.getBoundingClientRect().width;
+
+    completionPercentage = (x - initialValue) / (finalValue - initialValue) * 100;
+});
+
+window.addEventListener('resize', () => {
+    bgImage.style.width = String(window.innerWidth) + 'px';
+    // bgImage.style.height = String(window.innerHeight - footer.style.height) + 'px';
+    // footer.style.width = String(window.innerWidth) + 'px';
 });

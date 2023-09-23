@@ -6,13 +6,11 @@
 
 :root {
     --sizeButton: 55px;
-    /* --colorButton: #d61b22; */
-    /* --colorButton: #c71ff3; */
     --colorButton: #6bb4d1;
-    ;
-    /* --colorPlayer: #9b9e99; */
     --colorPlayer: #9b9e99;
     --colorText: white;
+    /* --widthbgImage: 1440px; */
+    --widthbgImage: 100%;
 }
 
 .flexSpArSt {
@@ -62,7 +60,7 @@
 .bgImage {
     margin: 0 auto;
     padding-top: 170px;
-    width: 1280px;
+    width: var(--widthbgImage);
     height: 720px;
 
     background-image: url('image/7924.jpg');
@@ -149,4 +147,28 @@
     color: var(--colorText);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
+}
+
+/* .test {
+    position: absolute;
+    top: 568px;
+    width: 20px;
+    height: 10px;
+
+    background-color: aqua;
+} */
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.footer{
+    margin: 0 auto;
+    height: 60px;
+
+    background-color:var(--colorPlayer);
+
+    width: var(--widthbgImage);
+    border: 3px solid black;
 }
