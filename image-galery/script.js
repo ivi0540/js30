@@ -5,4 +5,4 @@ async function getData() {
     const data = await res.json();
     console.log(data);
 }
-getData();
+// getData();
