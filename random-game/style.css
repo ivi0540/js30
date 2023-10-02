@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --sizeGameCanvas: 500px;
+}
+
+#game {
+    display: block;
+    margin: 0 auto;
+
+    width: var(--sizeGameCanvas);
+    height: var(--sizeGameCanvas);
+
+    background-color: aqua;
+
+}
