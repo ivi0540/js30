@@ -5,16 +5,15 @@
 }
 
 :root {
-    --sizeGameCanvas: 500px;
+    /* --sizeGameCanvas: 500px; */
 }
 
-#game {
+#canvas {
     display: block;
     margin: 0 auto;
 
-    width: var(--sizeGameCanvas);
-    height: var(--sizeGameCanvas);
+    width: 288px;
+    height: 512px;
 
-    background-color: aqua;
-
+    /* background-color: aqua; */
 }
