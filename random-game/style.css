@@ -136,9 +136,38 @@
     border: 1px solid rebeccapurple;
 }
 
-.blockWithResults{
+.blockWithResults {
     /* background-color: aqua; */
 
     position: relative;
     top: 500px;
+}
+
+.footer {
+    width: 800px;
+    height: 50px;
+    border-top: 1px solid gray;
+
+    margin: 0 auto;
+}
+
+.flexSpArCe {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.github {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.rs_school {
+    width: 80px;
 }
