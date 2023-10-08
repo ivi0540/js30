@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* --sizeGameCanvas: 500px; */
+    --widthCanvast: 288px;
+    --heightCanvast: 512px;
+}
+
+.flexCeCe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexDirColumn {
+    flex-direction: column;
+}
+
+#canvas {
+    display: block;
+    margin: 0 auto;
+
+    width: var(--widthCanvast);
+    height: var(--heightCanvast);
+
+    /* background-color: aqua; */
+}
+
+.score {
+    width: var(--widthCanvast);
+    height: 40px;
+
+    margin: 0 auto;
+
+    /* background-color: aqua; */
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+
+.mainPanel {
+    width: 800px;
+    height: 400px;
+
+    position: absolute;
+    left: 1px;
+    top: 100px;
+
+    background-color: white;
+    border: 2px solid gray;
+
+    border-radius: 10px;
+}
+
+.startGame {
+    width: 300px;
+    height: 100px;
+
+    border: 3px solid gray;
+    background-color: white;
+
+    border-radius: 10px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+
+.startGame:hover {
+    background-color: gray;
+}
+
+.csorePanel {
+    display: none;
+    /* background-color: aquamarine; */
+    width: 300px;
+    height: 200px;
+
+}
+
+.playGamePanel {
+    /* background-color: blueviolet; */
+    /* display: none; */
+    display: flex;
+}
+
+
+.gameName {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+}
+
+.userName {
+    width: 215px;
+    height: 30px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.scoreBall {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.saveScore {
+    width: 215px;
+    height: 30px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.saveScore:hover {
+    background-color: gray;
+}
+
+.tableScore {
+    border: 1px solid gray;
+    margin: 0 auto;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.trScore {
+    border: 1px solid gray;
+}
+
+.tdTable {
+    border: 1px solid rebeccapurple;
+}
+
+.blockWithResults {
+    /* background-color: aqua; */
+
+    position: relative;
+    top: 500px;
+}
+
+.footer {
+    width: 800px;
+    height: 50px;
+    border-top: 1px solid gray;
+
+    margin: 0 auto;
+}
+
+.flexSpArCe {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.github {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.rs_school {
+    width: 80px;
+}
