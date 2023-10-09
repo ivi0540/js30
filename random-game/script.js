@@ -30,8 +30,10 @@ pipeBottom.src = 'images/pipeBottom.png';
 let gap = 110;
 
 //Позиция птички
-let xPos = 10;
-let yPos = 150;
+let gameBird = {
+    x: 10,
+    y: 150
+};
 
 //Гравитация
 let grav = 0.5;
@@ -60,7 +62,7 @@ function draw() {
         ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + pipeUp.height + gap);
 
         //Скорость движения блоков
-        pipe[i].x = pipe[i].x - 0.5;
+        pipe[i].x = pipe[i].x - 1;
 
         if (pipe[i].x === blockInt) {
             pipe.push({
@@ -70,20 +72,17 @@ function draw() {
         };
 
         if (
-            (xPos + bird.width >= pipe[i].x) &&
-            (xPos <= pipe[i].x + pipeUp.width) &&
+            (gameBird.x + bird.width >= pipe[i].x) &&
+            (gameBird.x <= pipe[i].x + pipeUp.width) &&
             (
-                (yPos <= pipe[i].y + pipeUp.height) ||
-                (yPos + bird.height >= pipe[i].y + pipeUp.height + gap)
+                (gameBird.y <= pipe[i].y + pipeUp.height) ||
+                (gameBird.y + bird.height >= pipe[i].y + pipeUp.height + gap)
             )
         ) {
-            // cancelAnimationFrame();
-
             closeCanvas();
             showMainPanel();
             onCsorePanel();
             playGame = false;
-            // addScoreTable(JSON.parse(localStorage.getItem('totalScore')));
         };
 
         if ((pipe[i].x === 5) && (playGame === true)) {
@@ -93,23 +92,22 @@ function draw() {
         };
     };
 
-
     ctx.drawImage(fg, 0, cvs.height - fg.height);
-    ctx.drawImage(bird, xPos, yPos);
+    ctx.drawImage(bird, gameBird.x, gameBird.y);
 
-    yPos += grav;
+    gameBird.y += grav;
     requestAnimationFrame(draw);
 };
 
 //При нажатии на любую кнопку птичка будет подпрыгивать вверх
 document.addEventListener('keydown', () => {
-    yPos -= 20;
+    gameBird.y -= 20;
 });
 
-//Необходимо подождать пока все картинки загрузятся а потом вызвать drow для рисования
 startGame.addEventListener('click', () => {
     closeMainPanel();
     showCanvas();
+    //Необходимо подождать пока все картинки загрузятся а потом вызвать drow для рисования
     pipeBottom.onload = draw;
     requestAnimationFrame(draw);
 });
@@ -130,12 +128,9 @@ saveScore.addEventListener('click', () => {
     addScoreTable(JSON.parse(localStorage.getItem('totalScore')));
 });
 
-
-
 function drowMainPanel() {
     mainPanel.style.left = String((window.innerWidth / 2) - (800 / 2)) + 'px';
 };
-
 
 //Работа с главным меню
 function closeMainPanel() {
@@ -149,6 +144,7 @@ function onPlayGamePanel() {
     playGamePanel.style.display = 'flex';
     csorePanel.style.display = 'none';
 };
+
 function onCsorePanel() {
     playGamePanel.style.display = 'none';
     csorePanel.style.display = 'flex';
@@ -160,11 +156,9 @@ restartBtn.addEventListener('click', () => {
 
 function closeCanvas() {
     cvs.style.display = 'none';
-    // cvs.style.display = 'block';
 }
 
 function showCanvas() {
-    // cvs.style.display = 'none';
     cvs.style.display = 'block';
 }
 
@@ -172,9 +166,6 @@ drowMainPanel();
 window.addEventListener('resize', () => {
     drowMainPanel();
 })
-
-
-
 
 function addScoreTable(date) {
     if (!date) {
