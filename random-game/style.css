@@ -5,11 +5,11 @@
 }
 
 :root {
-    --widthCanvast: 288px;
-    --heightCanvast: 512px;
+    --widthCanvast: 750px;
+    --heightCanvast: 469px;
 
-    --mainColor: green;
-    --borderColor: #1E5945;
+    --mainColor: #74d133;
+    --borderColor: #31517c;
 }
 
 .flexCeCe {
@@ -66,7 +66,8 @@
 }
 
 .startGame:hover {
-    background-color: gray;
+    background-color: var(--borderColor);
+    /* border: 3px solid var(--mainColor); */
 }
 
 .csorePanel {
@@ -129,8 +130,7 @@
     border: 1px solid var(--borderColor);
 }
 
-.blockWithResults {
-}
+.blockWithResults {}
 
 .footer {
     width: var(--widthCanvast);

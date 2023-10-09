@@ -16,13 +16,11 @@ let ctx = cvs.getContext('2d');
 
 let bird = new Image();
 let bg = new Image();
-let fg = new Image();
 let pipeUp = new Image();
 let pipeBottom = new Image();
 
 bird.src = 'images/bird.png';
-bg.src = 'images/bg.png';
-fg.src = 'images/fg.png';
+bg.src = 'images/1671739159_kalix-club-p-fon-floppi-berd-oboi-1.png';
 pipeUp.src = 'images/pipeUp.png';
 pipeBottom.src = 'images/pipeBottom.png';
 
@@ -39,7 +37,7 @@ let gameBird = {
 let grav = 0.5;
 
 //Интервал появления блоков
-let blockInt = 90;
+let blockInt = 400;
 
 //Рисование блоков
 let pipe = [];
@@ -92,7 +90,6 @@ function draw() {
         };
     };
 
-    ctx.drawImage(fg, 0, cvs.height - fg.height);
     ctx.drawImage(bird, gameBird.x, gameBird.y);
 
     gameBird.y += grav;
