@@ -5,9 +5,11 @@
 }
 
 :root {
-    /* --sizeGameCanvas: 500px; */
-    --widthCanvast: 288px;
-    --heightCanvast: 512px;
+    --widthCanvast: 750px;
+    --heightCanvast: 469px;
+
+    --mainColor: #74d133;
+    --borderColor: #31517c;
 }
 
 .flexCeCe {
@@ -21,13 +23,11 @@
 }
 
 #canvas {
-    display: block;
+    display: none;
     margin: 0 auto;
 
     width: var(--widthCanvast);
     height: var(--heightCanvast);
-
-    /* background-color: aqua; */
 }
 
 .score {
@@ -36,32 +36,28 @@
 
     margin: 0 auto;
 
-    /* background-color: aqua; */
-
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
 }
 
 .mainPanel {
-    width: 800px;
-    height: 400px;
+    width: var(--widthCanvast);
+    height: var(--heightCanvast);
 
-    position: absolute;
-    left: 1px;
-    top: 100px;
+    margin: 0 auto;
 
-    background-color: white;
-    border: 2px solid gray;
+    background-color: var(--mainColor);
+    border: 2px solid var(--borderColor);
 
     border-radius: 10px;
 }
 
 .startGame {
-    width: 300px;
+    width: 250px;
     height: 100px;
 
-    border: 3px solid gray;
-    background-color: white;
+    border: 3px solid var(--borderColor);
+    background-color: var(--mainColor);
 
     border-radius: 10px;
 
@@ -70,27 +66,25 @@
 }
 
 .startGame:hover {
-    background-color: gray;
+    background-color: var(--borderColor);
+    /* border: 3px solid var(--mainColor); */
 }
 
 .csorePanel {
     display: none;
-    /* background-color: aquamarine; */
     width: 300px;
     height: 200px;
 
 }
 
 .playGamePanel {
-    /* background-color: blueviolet; */
-    /* display: none; */
     display: flex;
 }
 
 
 .gameName {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .userName {
@@ -113,7 +107,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 12px;
     background-color: white;
-    border: 1px solid gray;
+    border: 1px solid var(--borderColor);
 }
 
 .saveScore:hover {
@@ -121,7 +115,7 @@
 }
 
 .tableScore {
-    border: 1px solid gray;
+    border: 1px solid var(--borderColor);
     margin: 0 auto;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -129,24 +123,19 @@
 }
 
 .trScore {
-    border: 1px solid gray;
+    border: 1px solid var(--borderColor);
 }
 
 .tdTable {
-    border: 1px solid rebeccapurple;
+    border: 1px solid var(--borderColor);
 }
 
-.blockWithResults {
-    /* background-color: aqua; */
-
-    position: relative;
-    top: 500px;
-}
+.blockWithResults {}
 
 .footer {
-    width: 800px;
+    width: var(--widthCanvast);
     height: 50px;
-    border-top: 1px solid gray;
+    border-top: 1px solid var(--borderColor);
 
     margin: 0 auto;
 }
